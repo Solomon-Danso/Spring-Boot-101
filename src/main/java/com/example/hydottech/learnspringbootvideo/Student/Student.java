@@ -1,89 +1,95 @@
 package com.example.hydottech.learnspringbootvideo.Student;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.util.Map;
+
+@Entity
+@Table
 public class Student {
 
+    @Id
 
-    private Long Id;
-    private String Name;
-    private Integer Age;
-    private LocalDate DOB;
-    private String Email;
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
 
-    public Student(Long id, String name, Integer age, LocalDate DOB, String email) {
-        Id = id;
-        Name = name;
-        Age = age;
-        this.DOB = DOB;
-        Email = email;
+    private Long id;
+    private String name;
+    private Integer age;
+    private LocalDate dob;
+    private String email;
+
+    public Student() {
     }
 
+    public Student(Long id, String name, Integer age, LocalDate dob, String email) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.dob = dob;
+        this.email = email;
+    }
 
-    public Student(String name, Integer age, LocalDate DOB, String email) {
-        Name = name;
-        Age = age;
-        this.DOB = DOB;
-        Email = email;
+    public Student(String name, Integer age, LocalDate dob, String email) {
+        this.name = name;
+        this.age = age;
+        this.dob = dob;
+        this.email = email;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public Integer getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(Integer age) {
-        Age = age;
+        this.age = age;
     }
 
-    public LocalDate getDOB() {
-        return DOB;
+    public LocalDate getDob() {
+        return dob;
     }
 
-    public void setDOB(LocalDate DOB) {
-        this.DOB = DOB;
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "Id=" + Id +
-                ", Name='" + Name + '\'' +
-                ", Age=" + Age +
-                ", DOB=" + DOB +
-                ", Email='" + Email + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", dob=" + dob +
+                ", email='" + email + '\'' +
                 '}';
     }
-
-
-
-
-
-
-
-
-
 }
+
+
+
