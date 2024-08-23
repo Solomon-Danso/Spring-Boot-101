@@ -2,6 +2,9 @@ package com.hydottech.Springboot.Tutorial.controller;
 
 import com.hydottech.Springboot.Tutorial.entity.Department;
 import com.hydottech.Springboot.Tutorial.service.DepartmentService;
+import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +17,11 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    private final Logger LOG = LoggerFactory.getLogger(DepartmentController.class);
+
     @PostMapping("/departments")
-    public Department saveDepartment(@ModelAttribute Department department) {
+    public Department saveDepartment(@Valid @ModelAttribute Department department) {
+        LOG.info("Save Department Initiated");
         return departmentService.saveDepartment(department);
     }
 
