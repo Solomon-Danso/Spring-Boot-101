@@ -3,6 +3,7 @@ package com.hydottech.Springboot.Tutorial.service;
 import com.hydottech.Springboot.Tutorial.entity.Department;
 import com.hydottech.Springboot.Tutorial.repository.DepartmentRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ class DepartmentServiceTest {
     }
 
     @Test
+    @DisplayName("Get Data based on department")
     public void whenDepartnameExist_thenDepartmentIsFound(){
         String departmentName = "Kitchen1";
         Department found = departmentService.fetchDepartmentByName(departmentName);

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.hydottech</groupId>
 	<artifactId>Spring-Boot-Tutorial</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Spring-Boot-Tutorial</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -45,6 +45,12 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>com.mysql</groupId>
