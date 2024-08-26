@@ -2,6 +2,7 @@ package com.hydottech.Springboot.Tutorial.service;
 
 
 import com.hydottech.Springboot.Tutorial.entity.Department;
+import com.hydottech.Springboot.Tutorial.error.DepartmentNotFoundException;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface DepartmentService {
   public  List<Department> fetchDepartments();
 
 
-  public  Department fetchOneDepartments(long id);
+  public  Department fetchOneDepartments(long id) throws DepartmentNotFoundException;
 
   public  void deleteOneDepartments(long id);
 

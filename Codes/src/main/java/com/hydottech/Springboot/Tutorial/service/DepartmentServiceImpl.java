@@ -1,6 +1,7 @@
 package com.hydottech.Springboot.Tutorial.service;
 
 import com.hydottech.Springboot.Tutorial.entity.Department;
+import com.hydottech.Springboot.Tutorial.error.DepartmentNotFoundException;
 import com.hydottech.Springboot.Tutorial.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService{
@@ -26,8 +28,14 @@ public class DepartmentServiceImpl implements DepartmentService{
     }
 
     @Override
-    public Department fetchOneDepartments(long id) {
-        return departmentRepository.findById(id).get();
+    public Department fetchOneDepartments(long id) throws DepartmentNotFoundException {
+
+    Optional<Department> department = departmentRepository.findById(id);
+    if(!department.isPresent()){
+        throw new DepartmentNotFoundException("Department not available");
+    }
+    return department.get();
+
     }
 
     @Override

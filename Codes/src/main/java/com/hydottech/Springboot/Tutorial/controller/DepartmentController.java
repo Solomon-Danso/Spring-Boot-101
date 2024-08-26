@@ -1,6 +1,7 @@
 package com.hydottech.Springboot.Tutorial.controller;
 
 import com.hydottech.Springboot.Tutorial.entity.Department;
+import com.hydottech.Springboot.Tutorial.error.DepartmentNotFoundException;
 import com.hydottech.Springboot.Tutorial.service.DepartmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{Id}")
-    public Department fetchOneDepartment(@PathVariable("Id") long Id){
+    public Department fetchOneDepartment(@PathVariable("Id") long Id) throws DepartmentNotFoundException {
         return departmentService.fetchOneDepartments(Id);
     }
 
